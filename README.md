@@ -1,3 +1,6 @@
+# One Line Init
+    curl -s https://raw.githubusercontent.com/sigma2380/dotfiles/master/init.sh | bash
+
 # Software
     sudo apt-get update
     sudo apt-get --yes upgrade
