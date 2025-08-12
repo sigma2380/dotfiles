@@ -1,3 +1,4 @@
+sudo apt-add-repository -y ppa:yktooo/ppa
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
@@ -11,13 +12,7 @@ sudo apt --fix-broken install
 rm google-chrome-stable_current_amd64.deb
 
 % Add other software
-sudo apt-get -y install git
-sudo apt-get -y install dconf-editor
-
-% Sound switcher
-sudo apt-add-repository -y ppa:yktooo/ppa
-sudo apt-get -y update
-sudo apt-get -y install indicator-sound-switcher
+sudo apt-get -y install git dconf-editor indicator-sound-switcher
 
 % Chezmoi
 cd /
@@ -39,7 +34,7 @@ dconf write /com/linuxmint/updates/hide-systray true
 sudo mkdir /home/public
 sudo chmod 777 /home/public
 cp ~/.local/share/chezmoi/*.jpg ~/.local/share/chezmoi/*.png /home/public
-dconf write /com/cinnamon/desktop/background/picture-uri "'file:///home/public/spiritedaway.png'"
+gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/spiritedaway.png"
 
 % Github credentials
 % ssh-keygen -t rsa -C "webemail"
