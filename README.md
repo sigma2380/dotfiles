@@ -10,7 +10,7 @@
     rm google-chrome-stable_current_amd64.deb
     % Add others
     sudo apt-get -y install git
-    sudo apt-add-repository ppa:yktooo/ppa
+    sudo apt-add-repository -y ppa:yktooo/ppa
     sudo apt-get -y update
     sudo apt-get -y install indicator-sound-switcher
     % chezmoi
