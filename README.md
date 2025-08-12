@@ -2,17 +2,17 @@
     sudo apt-get update
     sudo apt-get --yes upgrade
     % Remove Unneeded
-    sudo apt remove firefox
+    sudo apt-get -y remove firefox
     % Add Chrome
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     sudo apt --fix-broken install
     rm google-chrome-stable_current_amd64.deb
     % Add others
-    sudo apt install git
+    sudo apt-get -y install git
     sudo apt-add-repository ppa:yktooo/ppa
-    sudo apt-get update
-    sudo apt-get install indicator-sound-switcher
+    sudo apt-get -y update
+    sudo apt-get -y install indicator-sound-switcher
     % chezmoi
     cd /
     sudo sh -c "$(curl -fsLS get.chezmoi.io)"
