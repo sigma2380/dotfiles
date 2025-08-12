@@ -23,9 +23,10 @@
     sudo useradd --create-home zach
 
 # Settings
+    cz init
     % ssh-keygen -t rsa -C "webemail"
     % cat ~/.ssh/id_rsa.pub
     % add key to github
-    git remote add origin git@github.com:sigma2380/dotfiles.git
-    git pull origin main
+    % git remote add origin git@github.com:sigma2380/dotfiles.git
+    % git pull origin main
 
