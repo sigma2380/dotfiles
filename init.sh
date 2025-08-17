@@ -1,4 +1,5 @@
-tput setaf 2; echo "Scott's Settings v1.3.2"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.3.3"; tput sgr0
+sleep 1
 
 # Repo prep
 tput setaf 4; echo "Repo Prep"; tput sgr0
@@ -65,11 +66,11 @@ gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/s
 
 # Pin Apps
 tput setaf 4; echo "Wallpaper"; tput sgr0
-sed -i '361 i\            "com.mitchellh.ghostty.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+sed -i '361 i\            "com.mitchellh.ghostty.desktop"' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json 2.cinbak
-tac 2.cinbak | sed '0,/Terminal/{/Terminal/d}' | tac > 3.cinbak
+tac 2.cinbak | sed '0,/firefox/{/firefox/d}' | tac > 3.cinbak
 tac 3.cinbak | sed '0,/Terminal/{/Terminal/d}' | tac > 4.cinbak
 cp 4.cinbak ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 cinnamon --replace &
