@@ -100,10 +100,8 @@ cp ~/.local/share/chezmoi/*.json /home/public
 cp /home/public/bmw-scott.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@klangman/CinnamonBurnMyWindows\@klangman.json
 cp /home/public/tp.json ~/.config/cinnamon/spices/transparent-panels\@germanfr/transparent-panels\@germanfr.json
 
-# Github credentials
-# ssh-keygen -t rsa -C "webemail"
-# cat ~/.ssh/id_rsa.pub
-# add key to github
+# Zach script
+cp ~/.local/share/chezmoi/init-zach.sh /home/public
 
 tput setaf 2; echo "Complete"; tput sgr0
 
