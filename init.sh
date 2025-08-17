@@ -41,7 +41,7 @@ ARCH="$(dpkg --print-architecture)"
 curl -LO https://download.opensuse.org/repositories/home:/clayrisser:/sid/Debian_Unstable/$ARCH/ghostty_1.1.3-2_$ARCH.deb
 sudo apt install ./ghostty_1.1.3-2_$ARCH.deb
 
-% VS Code (download only)
+% VS Code download only
 tput setaf 4; echo "Download VS Code"; tput sgr0
 wget -O vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
 
