@@ -65,9 +65,9 @@ gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/s
 
 # Pin Apps
 tput setaf 4; echo "Wallpaper"; tput sgr0
-sed -i '361 i/            "com.mitchellh.ghostty.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-sed -i '361 i/            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-sed -i '361 i/            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+sed -i '361 i\            "com.mitchellh.ghostty.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json | sed '0,/Terminal/{/Terminal/d}' | tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json | sed '0,/firefox/{/firefox/d}' | tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 
