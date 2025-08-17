@@ -58,11 +58,12 @@ dconf write /org/cinnamon/desktop/interface/clock-use-24h false
 dconf write /org/gnome/desktop/interface/clock-format "'12h'"
 dconf write /com/linuxmint/updates/hide-systray true
 dconf write /org/x/apps/portal/color-scheme "'prefer-dark'"
-dconf write /org/cinnamon/theme/name "'Mint-Y-Dark-Aqua'"
+dconf write /org/cinnamon/theme/name "'Mint-Y-Dark-Teal'"
 dconf write /org/cinnamon/desktop/interface/cursor-theme "'Bibata-Modern-Classic'"
-dconf write /org/cinnamon/desktop/interface/gtk-theme "'Mint-Y-Dark-Aqua'"
-dconf write /org/cinnamon/desktop/interface/icon-theme "'Mint-Y-Sand'"
-dconf write /org/gnome/desktop/interface/gtk-theme "'Mint-Y-Dark-Aqua'"
+dconf write /org/cinnamon/desktop/interface/gtk-theme "'Mint-Y-Dark-Teal'"
+dconf write /org/cinnamon/desktop/interface/icon-theme "'Mint-Y-Teal'"
+dconf write /org/gnome/desktop/interface/gtk-theme "'Mint-Y-Dark-Teal'"
+dconf write /org/gnome/desktop/interface/icon-theme "'Mint-Y-Teal'"
 
 # Wallpaper
 tput setaf 4; echo "Wallpaper"; tput sgr0
