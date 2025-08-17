@@ -1,7 +1,7 @@
-tput setaf 7; echo "Scott's Settings v1.1.1"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.1.2"; tput sgr0
 
 % Repo prep
-tput setaf 2; echo "Repo Prep"; tput sgr0
+tput setaf 4; echo "Repo Prep"; tput sgr0
 sudo apt-add-repository -y ppa:yktooo/ppa
 wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
