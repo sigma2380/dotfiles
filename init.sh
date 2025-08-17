@@ -1,4 +1,4 @@
-tput setaf 2; echo "Scott's Settings v1.2"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.2.1"; tput sgr0
 
 # Repo prep
 tput setaf 4; echo "Repo Prep"; tput sgr0
@@ -14,7 +14,7 @@ sudo apt-get -y remove firefox
 
 # Add other software
 tput setaf 4; echo "Add Software in repos"; tput sgr0
-sudo apt-get -y install git dconf-editor indicator-sound-switcher
+sudo apt-get -y install git dconf-editor indicator-sound-switcher jq
 
 # Upgrade all
 tput setaf 4; echo "Upgrade all"; tput sgr0
