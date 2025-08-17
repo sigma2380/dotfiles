@@ -1,3 +1,5 @@
+echo "Scott's settings v1.0"
+
 % Repo prep
 sudo apt-add-repository -y ppa:yktooo/ppa
 wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
