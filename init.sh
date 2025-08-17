@@ -1,4 +1,4 @@
-tput setaf 2; echo "Scott's Settings v1.4"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.5"; tput sgr0
 sleep 1
 
 # Repo prep
@@ -48,7 +48,8 @@ wget -O vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
 
 # Add Users
 tput setaf 4; echo "Add Users"; tput sgr0
-sudo useradd --create-home zach
+sudo useradd -s /usr/bin/bash --create-home zach
+echo "zach:zach" | sudo chpasswd
 
 # Settings
 tput setaf 4; echo "dconf settings"; tput sgr0
@@ -69,7 +70,7 @@ tput setaf 4; echo "Pin Apps"; tput sgr0
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpanel.bk
 sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-cinnamon --replace &
+# cinnamon --replace &
 
 # Github credentials
 # ssh-keygen -t rsa -C "webemail"
