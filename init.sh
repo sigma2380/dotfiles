@@ -89,7 +89,9 @@ gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot "['<Sh
 # Extensions
 tput setaf 4; echo "Desktop Extensions"; tput sgr0
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/transparent-panels@germanfr.zip" > /tmp/tp.zip && unzip -o /tmp/tp.zip -d ~/.local/share/cinnamon/extensions
+rm /tmp/tp.zip
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/CinnamonBurnMyWindows@klangman.zip" > /tmp/bmw.zip && unzip -o /tmp/bmw.zip -d ~/.local/share/cinnamon/extensions
+rm /tmp/bmw.zip
 dconf write /org/cinnamon/enabled-extensions "['transparent-panels@germanfr', 'CinnamonBurnMyWindows@klangman']"
 cp ~/.local/share/chezmoi/*.json /home/public
 cp /home/public/bmw-scott.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@klangman/CinnamonBurnMyWindows\@klangman.json
