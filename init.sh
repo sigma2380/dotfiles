@@ -1,4 +1,4 @@
-tput setaf 2; echo "Scott's Settings v1.3.4"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.3.5"; tput sgr0
 sleep 1
 
 # Repo prep
@@ -71,8 +71,8 @@ sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grou
 sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json 2.cinbak
 tac 2.cinbak | sed '0,/firefox/{/firefox/d}' | tac > 3.cinbak
-tac 3.cinbak | sed '0,/Terminal/{/Terminal/d}' | tac > 4.cinbak
-cp 4.cinbak ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+# tac 3.cinbak | sed '0,/Terminal/{/Terminal/d}' | tac > 4.cinbak
+cp 3.cinbak ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 cinnamon --replace &
 
 # Github credentials
