@@ -1,4 +1,4 @@
-tput setaf 2; echo "Scott's Settings v1.2.1"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.3"; tput sgr0
 
 # Repo prep
 tput setaf 4; echo "Repo Prep"; tput sgr0
@@ -62,6 +62,14 @@ sudo mkdir /home/public
 sudo chmod 777 /home/public
 cp ~/.local/share/chezmoi/*.jpg ~/.local/share/chezmoi/*.png /home/public
 gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/spiritedaway.png"
+
+# Pin Apps
+tput setaf 4; echo "Wallpaper"; tput sgr0
+sed -i '361\            "com.mitchellh.ghostty.desktop",'
+sed -i '361\            "thunderbird.desktop",'
+sed -i '361\            "google-chrome.desktop",'
+tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json | sed '0,/Terminal/{/Terminal/d}' | tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json | sed '0,/firefox/{/firefox/d}' | tac ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 
 # Github credentials
 # ssh-keygen -t rsa -C "webemail"
