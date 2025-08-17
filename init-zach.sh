@@ -25,12 +25,18 @@ cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpane
 sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 
 # Keyboard shortcuts
+tput setaf 4; echo "Keyboard Shortcuts"; tput sgr0
 gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Switch to Scott'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command 'dm-tool switch-to-user scott'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Alt><Shift>s']"
 gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot "['<Shift>Print', '<Shift><Super>s']"
 # cinnamon --replace &
+
+# Extensions
+tput setaf 4; echo "Desktop Extensions"; tput sgr0
+curl "https://cinnamon-spices.linuxmint.com/files/extensions/transparent-panels@germanfr.zip" > /tmp/tp.zip && unzip /tmp/tp.zip -d ~/.local/share/cinnamon/extensions
+curl "https://cinnamon-spices.linuxmint.com/files/extensions/CinnamonBurnMyWindows@klangman.zip" > /tmp/bmw.zip && unzip /tmp/bmw.zip -d ~/.local/share/cinnamon/extensions
 
 # Github credentials
 # ssh-keygen -t rsa -C "webemail"
