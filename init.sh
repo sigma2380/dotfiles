@@ -1,4 +1,4 @@
-tput setaf 2; echo "Scott's Settings v1.3.3"; tput sgr0
+tput setaf 2; echo "Scott's Settings v1.3.4"; tput sgr0
 sleep 1
 
 # Repo prep
@@ -37,10 +37,10 @@ cd ~
 cz init https://github.com/sigma2380/dotfiles.git
 
 # Ghostty
-tput setaf 4; echo "Add Ghostty"; tput sgr0
-ARCH="$(dpkg --print-architecture)"
-curl -LO https://download.opensuse.org/repositories/home:/clayrisser:/sid/Debian_Unstable/$ARCH/ghostty_1.1.3-2_$ARCH.deb
-sudo apt install ./ghostty_1.1.3-2_$ARCH.deb
+tput setaf 4; echo "Skipping Ghostty"; tput sgr0
+# ARCH="$(dpkg --print-architecture)"
+# curl -LO https://download.opensuse.org/repositories/home:/clayrisser:/sid/Debian_Unstable/$ARCH/ghostty_1.1.3-2_$ARCH.deb
+# sudo apt install ./ghostty_1.1.3-2_$ARCH.deb
 
 # VS Code download only
 tput setaf 4; echo "Download VS Code"; tput sgr0
@@ -65,8 +65,8 @@ cp ~/.local/share/chezmoi/*.jpg ~/.local/share/chezmoi/*.png /home/public
 gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/spiritedaway.png"
 
 # Pin Apps
-tput setaf 4; echo "Wallpaper"; tput sgr0
-sed -i '361 i\            "com.mitchellh.ghostty.desktop"' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+tput setaf 4; echo "Pin Apps"; tput sgr0
+# sed -i '361 i\            "com.mitchellh.ghostty.desktop"' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json 2.cinbak
