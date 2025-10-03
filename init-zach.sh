@@ -22,16 +22,21 @@ gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/r
 # Pin Apps
 tput setaf 4; echo "Pin Apps"; tput sgr0
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpanel.bk
-sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+if ! grep -q "chrome" "~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"; then
+    sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+else
+    echo "Shortcuts already pinned."
+fi
 
 # Keyboard shortcuts
-tput setaf 4; echo "Keyboard Shortcuts"; tput sgr0
-gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0']"
+gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0', 'custom1']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Switch to Scott'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command 'dm-tool switch-to-user scott'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Alt><Shift>s']"
-gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot "['<Shift>Print', '<Shift><Super>s']"
-# cinnamon --replace &
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Switch to Chase'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command 'dm-tool switch-to-user chase'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ binding "['<Primary><Alt><Shift>c']"
+gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot-clip "['<Shift>Print', '<Shift><Super>s']"
 
 # Extensions
 tput setaf 4; echo "Desktop Extensions"; tput sgr0
@@ -45,11 +50,7 @@ cinnamon --replace &
 sleep 2
 cp /home/public/bmw-zach.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@klangman/CinnamonBurnMyWindows\@klangman.json
 cp /home/public/tp.json ~/.config/cinnamon/spices/transparent-panels\@germanfr/transparent-panels\@germanfr.json
-
-# Github credentials
-# ssh-keygen -t rsa -C "webemail"
-# cat ~/.ssh/id_rsa.pub
-# add key to github
+cinnamon --replace &
 
 tput setaf 2; echo "Complete"; tput sgr0
 
