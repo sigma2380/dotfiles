@@ -4,9 +4,6 @@ sleep 1
 # Repo prep
 tput setaf 4; echo "Repo Prep"; tput sgr0
 sudo apt-add-repository -y ppa:yktooo/ppa
-wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
 sudo apt-get -y update
 
 # Remove Unneeded Software
@@ -50,6 +47,10 @@ wget -O vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
 tput setaf 4; echo "Add Users"; tput sgr0
 sudo useradd -s /usr/bin/bash --create-home zach
 echo "zach:zach" | sudo chpasswd
+sudo useradd -s /usr/bin/bash --create-home chase
+echo "chase:chase" | sudo chpasswd
+sudo useradd -s /usr/bin/bash --create-home so
+echo "so:so" | sudo chpasswd
 
 # Settings
 tput setaf 4; echo "dconf settings"; tput sgr0
@@ -83,8 +84,11 @@ gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Switch to Zach'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command 'dm-tool switch-to-user zach'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Alt><Shift>z']"
+gsettings set org.cinnamon.desktop.keybindings custom-list "['custom1']"
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Switch to Chase'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command 'dm-tool switch-to-user chase'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ binding "['<Primary><Alt><Shift>c']"
 gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot "['<Shift>Print', '<Shift><Super>s']"
-# cinnamon --replace &
 
 # Extensions
 tput setaf 4; echo "Desktop Extensions"; tput sgr0
