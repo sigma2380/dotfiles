@@ -109,7 +109,7 @@ gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/d
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Switch to Chase'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command 'dm-tool switch-to-user chase'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ binding "['<Primary><Alt><Shift>c']"
-gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot "['<Shift>Print', '<Shift><Super>s']"
+gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot-clip "['<Shift>Print', '<Shift><Super>s']"
 
 # Extensions
 tput setaf 4; echo "Desktop Extensions"; tput sgr0
