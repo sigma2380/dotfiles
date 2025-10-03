@@ -20,37 +20,55 @@ sudo apt-get -y upgrade
 
 # Add Chrome
 tput setaf 4; echo "Add Chrome"; tput sgr0
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt --fix-broken install
-rm google-chrome-stable_current_amd64.deb
+if which "google-chrome" >/dev/null 2>&1; then
+    echo "Already installed.  Bypassing."
+else
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    sudo apt --fix-broken install
+    rm google-chrome-stable_current_amd64.deb
+fi
 
 # Chezmoi
 tput setaf 4; echo "Add Chezmoi"; tput sgr0
-cd /
-sudo sh -c "$(curl -fsLS get.chezmoi.io)"
-sudo ln /bin/chezmoi /bin/cz
-cd ~
-cz init https://github.com/sigma2380/dotfiles.git
-
-# Ghostty
-tput setaf 4; echo "Skipping Ghostty"; tput sgr0
-# ARCH="$(dpkg --print-architecture)"
-# curl -LO https://download.opensuse.org/repositories/home:/clayrisser:/sid/Debian_Unstable/$ARCH/ghostty_1.1.3-2_$ARCH.deb
-# sudo apt install ./ghostty_1.1.3-2_$ARCH.deb
+if which "cz" >/dev/null 2>&1; then
+    echo "Already installed.  Bypassing."
+else
+    cd /
+    sudo sh -c "$(curl -fsLS get.chezmoi.io)"
+    sudo ln /bin/chezmoi /bin/cz
+    cd ~
+    cz init https://github.com/sigma2380/dotfiles.git
+fi
 
 # VS Code download only
 tput setaf 4; echo "Download VS Code"; tput sgr0
-wget -O vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
+if [ -e "~/Downloads/vscode-latest.deb" ;] then
+    echo "Already downloaded.  Bypassing."
+else
+    wget -O ~/Downloads/vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
+fi
 
 # Add Users
 tput setaf 4; echo "Add Users"; tput sgr0
-sudo useradd -s /usr/bin/bash --create-home zach
-echo "zach:zach" | sudo chpasswd
-sudo useradd -s /usr/bin/bash --create-home chase
-echo "chase:chase" | sudo chpasswd
-sudo useradd -s /usr/bin/bash --create-home so
-echo "so:so" | sudo chpasswd
+if id "zach" >/dev/null 2>&1; then
+    echo "User 'zach' exists."
+else
+    sudo useradd -s /usr/bin/bash --create-home zach
+    echo "zach:zach" | sudo chpasswd
+fi
+if id "chase" >/dev/null 2>&1; then
+    echo "User 'chase' exists."
+else
+    sudo useradd -s /usr/bin/bash --create-home chase
+    echo "chase:chase" | sudo chpasswd
+fi
+if id "so" >/dev/null 2>&1; then
+    echo "User 'so' exists."
+else
+    sudo useradd -s /usr/bin/bash --create-home so
+    echo "so:so" | sudo chpasswd
+fi
 
 # Settings
 tput setaf 4; echo "dconf settings"; tput sgr0
@@ -76,15 +94,18 @@ gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/s
 # Pin Apps
 tput setaf 4; echo "Pin Apps"; tput sgr0
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpanel.bk
-sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+if ! grep -q "thunderbird" "~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"; then
+    sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+    sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+else
+    echo "Shortcuts already pinned."
+fi
 
 # Keyboard shortcuts
-gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0']"
+gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0', 'custom1']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Switch to Zach'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command 'dm-tool switch-to-user zach'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Alt><Shift>z']"
-gsettings set org.cinnamon.desktop.keybindings custom-list "['custom1']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Switch to Chase'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command 'dm-tool switch-to-user chase'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ binding "['<Primary><Alt><Shift>c']"
