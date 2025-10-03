@@ -43,7 +43,7 @@ fi
 
 # VS Code download only
 tput setaf 4; echo "Download VS Code"; tput sgr0
-if [ -e "~/Downloads/vscode-latest.deb" ;] then
+if [ -e ~/Downloads/vscode-latest.deb ]; then
     echo "Already downloaded.  Bypassing."
 else
     wget -O ~/Downloads/vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
