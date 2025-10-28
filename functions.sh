@@ -28,6 +28,6 @@ function pin_app() {
         sed -i "361 i\            \"$shortcut.desktop\"," "$file"
         echo "$shortcut pinned."
     else
-        echo "Shortcut already pinned."
+        echo "$shortcut already pinned."
     fi
 }
