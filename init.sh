@@ -1,11 +1,17 @@
 source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
 
 write_title "Scott's Settings v1.5"
+add_user "testuser"
+exit 0
+
 sleep 1
 
 # Repo prep
 write_section "Repo Prep"
 sudo apt-add-repository -y ppa:yktooo/ppa
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get -y update
 
 # Remove Unneeded Software
@@ -14,12 +20,19 @@ sudo apt-get -y remove firefox firefox-locale-en
 
 # Add other software
 write_section "Add Software in repos"
-sudo apt-get -y install git dconf-editor indicator-sound-switcher jq
+sudo apt-get -y install git dconf-editor indicator-sound-switcher jq code
 
 # Upgrade all and clean up
 write_section "Upgrade all"
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
+
+# Clone dotfiles
+write_section "Clone dotfiles repo"
+if [ ! -d "~/.local/share/dotfiles" ]; then
+    git clone https://github.com/sigma2380/dotfiles.git ~/.local/share/dotfiles
+fi
+git -C ~/.local/share/dotfiles pull
 
 # Add Chrome
 write_section "Add Chrome"
@@ -34,28 +47,11 @@ fi
 
 exit 0
 
-# Chezmoi
-tput setaf 4; echo "Add Chezmoi"; tput sgr0
-if which "cz" >/dev/null 2>&1; then
-    echo "Already installed.  Bypassing."
-else
-    cd /
-    sudo sh -c "$(curl -fsLS get.chezmoi.io)"
-    sudo ln /bin/chezmoi /bin/cz
-    cd ~
-    cz init https://github.com/sigma2380/dotfiles.git
-fi
-
-# VS Code download only
-tput setaf 4; echo "Download VS Code"; tput sgr0
-if [ -e ~/Downloads/vscode-latest.deb ]; then
-    echo "Already downloaded.  Bypassing."
-else
-    wget -O ~/Downloads/vscode-latest.deb https://go.microsoft.com/fwlink/?LinkID=760868
-fi
-
 # Add Users
 tput setaf 4; echo "Add Users"; tput sgr0
+
+
+
 if id "zach" >/dev/null 2>&1; then
     echo "User 'zach' exists."
 else
