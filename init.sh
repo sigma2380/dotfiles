@@ -21,10 +21,8 @@ write_section "Upgrade all"
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 
-exit 0
-
 # Add Chrome
-tput setaf 4; echo "Add Chrome"; tput sgr0
+write_section "Add Chrome"
 if which "google-chrome" >/dev/null 2>&1; then
     echo "Already installed.  Bypassing."
 else
@@ -33,6 +31,8 @@ else
     sudo apt --fix-broken install
     rm google-chrome-stable_current_amd64.deb
 fi
+
+exit 0
 
 # Chezmoi
 tput setaf 4; echo "Add Chezmoi"; tput sgr0
