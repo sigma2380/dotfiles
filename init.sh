@@ -24,12 +24,15 @@ write_section "Upgrade all"
 sudo apt-get -y upgrade
 sudo apt-get -y autoremove
 
-# Clone dotfiles
-write_section "Clone dotfiles repo"
+# Clone dotfiles and move public files
+write_section "Clone dotfiles repo and public files"
 if [ ! -d "~/.local/share/dotfiles" ]; then
     git clone https://github.com/sigma2380/dotfiles.git ~/.local/share/dotfiles
 fi
 git -C ~/.local/share/dotfiles pull
+sudo mkdir /home/public
+sudo chmod 777 /home/public
+cp ~/.local/share/dotfiles/*.jpg ~/.local/share/dotfiles/*.png /home/public
 
 # Add Chrome
 write_section "Add Chrome"
@@ -50,6 +53,10 @@ add_user "katie"
 add_user "so"
 
 exit 0
+
+# Wallpaper
+gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/spiritedaway.png"
+
 
 # Settings
 tput setaf 4; echo "dconf settings"; tput sgr0
