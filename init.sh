@@ -1,3 +1,4 @@
+source <(curl -fsSL https://github.com/sigma2380/dotfiles/edit/master/functions.sh)
 tput setaf 2; echo "Scott's Settings v1.5"; tput sgr0
 sleep 1
 
@@ -8,7 +9,7 @@ sudo apt-get -y update
 
 # Remove Unneeded Software
 tput setaf 4; echo "Remove Unneeded Software"; tput sgr0
-sudo apt-get -y remove firefox
+sudo apt-get -y remove firefox firefox-locale-en
 
 # Add other software
 tput setaf 4; echo "Add Software in repos"; tput sgr0
