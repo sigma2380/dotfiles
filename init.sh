@@ -1,9 +1,6 @@
 source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
 
 write_title "Scott's Settings v1.5"
-add_user "testuser"
-exit 0
-
 sleep 1
 
 # Repo prep
@@ -45,31 +42,14 @@ else
     rm google-chrome-stable_current_amd64.deb
 fi
 
-exit 0
-
 # Add Users
 tput setaf 4; echo "Add Users"; tput sgr0
+add_user "zach"
+add_user "chase"
+add_user "katie"
+add_user "so"
 
-
-
-if id "zach" >/dev/null 2>&1; then
-    echo "User 'zach' exists."
-else
-    sudo useradd -s /usr/bin/bash --create-home zach
-    echo "zach:zach" | sudo chpasswd
-fi
-if id "chase" >/dev/null 2>&1; then
-    echo "User 'chase' exists."
-else
-    sudo useradd -s /usr/bin/bash --create-home chase
-    echo "chase:chase" | sudo chpasswd
-fi
-if id "so" >/dev/null 2>&1; then
-    echo "User 'so' exists."
-else
-    sudo useradd -s /usr/bin/bash --create-home so
-    echo "so:so" | sudo chpasswd
-fi
+exit 0
 
 # Settings
 tput setaf 4; echo "dconf settings"; tput sgr0
