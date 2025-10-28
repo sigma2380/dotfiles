@@ -17,7 +17,7 @@ sudo apt-get -y remove firefox firefox-locale-en
 
 # Add other software
 write_section "Add Software in repos"
-sudo apt-get -y install git dconf-editor indicator-sound-switcher jq code
+sudo apt-get -y install git dconf-editor indicator-sound-switcher jq code meld
 
 # Upgrade all and clean up
 write_section "Upgrade all"
