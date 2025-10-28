@@ -1,25 +1,27 @@
 source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
+
 write_title "Scott's Settings v1.5"
-tput setaf 2; echo "Scott's Settings v1.5"; tput sgr0
 sleep 1
-exit 0
 
 # Repo prep
-tput setaf 4; echo "Repo Prep"; tput sgr0
+write_section "Repo Prep"
 sudo apt-add-repository -y ppa:yktooo/ppa
 sudo apt-get -y update
 
 # Remove Unneeded Software
-tput setaf 4; echo "Remove Unneeded Software"; tput sgr0
+write_section "Remove Unneeded Software"
 sudo apt-get -y remove firefox firefox-locale-en
 
 # Add other software
-tput setaf 4; echo "Add Software in repos"; tput sgr0
+write_section "Add Software in repos"
 sudo apt-get -y install git dconf-editor indicator-sound-switcher jq
 
-# Upgrade all
-tput setaf 4; echo "Upgrade all"; tput sgr0
+# Upgrade all and clean up
+write_section "Upgrade all"
 sudo apt-get -y upgrade
+sudo apt-get -y autoremove
+
+exit 0
 
 # Add Chrome
 tput setaf 4; echo "Add Chrome"; tput sgr0
