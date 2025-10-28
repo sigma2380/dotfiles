@@ -31,5 +31,6 @@ write_heading "Extension Customizations"
 cp /home/public/bmw-zach.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@klangman/CinnamonBurnMyWindows\@klangman.json
 cp /home/public/tp.json ~/.config/cinnamon/spices/transparent-panels\@germanfr/transparent-panels\@germanfr.json
 cinnamon --replace &
+sleep 2
 
 write_title "Complete"
