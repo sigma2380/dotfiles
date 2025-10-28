@@ -20,12 +20,9 @@ dconf write /org/gnome/desktop/interface/icon-theme "'Mint-Y-Teal'"
 # Pin Apps
 write_section "Pin Apps"
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpanel.bk
-if ! grep -q "thunderbird" "~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"; then
-    sed -i '361 i\            "thunderbird.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-    sed -i '361 i\            "google-chrome.desktop",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
-else
-    echo "Shortcuts already pinned."
-fi
+pin_app "thunderbird.desktop"
+pin_app "google-chrome.desktop"
+
 
 # Extension Customizations
 write_section "Extension Customizations"
