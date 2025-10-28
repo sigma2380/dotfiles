@@ -8,7 +8,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/
 write_heading "Wallpaper"
 gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/spiritedaway.png"
 
-#Dconf Settings
+# Dconf Settings
 write_heading "Dconf Settings"
 dconf write /org/cinnamon/theme/name "'Mint-Y-Dark-Teal'"
 dconf write /org/cinnamon/desktop/interface/cursor-theme "'Bibata-Modern-Classic'"
@@ -33,5 +33,6 @@ cp /home/public/bmw-scott.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@
 cp /home/public/tp.json ~/.config/cinnamon/spices/transparent-panels\@germanfr/transparent-panels\@germanfr.json
 
 cinnamon --replace &
+sleep 2
 
 write_title "Complete"
