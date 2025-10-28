@@ -1,4 +1,4 @@
-source < (curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
 write_title "Scott's Settings v1.1"
 
 # Common settings
