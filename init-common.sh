@@ -34,5 +34,5 @@ write_section "Desktop Extensions"
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/transparent-panels@germanfr.zip" > /tmp/tp.zip && unzip -o /tmp/tp.zip -d ~/.local/share/cinnamon/extensions > /dev/null; rm /tmp/tp.zip
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/CinnamonBurnMyWindows@klangman.zip" > /tmp/bmw.zip && unzip -o /tmp/bmw.zip -d ~/.local/share/cinnamon/extensions > dev/null; rm /tmp/bmw.zip
 dconf write /org/cinnamon/enabled-extensions "['transparent-panels@germanfr', 'CinnamonBurnMyWindows@klangman']"
-sleep 1
-cinnamon --replace & > /dev/null
+cinnamon --replace &
+sleep 2
