@@ -19,3 +19,11 @@ function add_user() {
         echo "$1:$1" | sudo chpasswd
     fi
 }
+
+function pin_app() {
+  if ! grep -q "$1" "~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"; then
+      sed -i '361 i\            "$1",' ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json
+  else
+      echo "Shortcut $1 already pinned."
+  fi
+}
