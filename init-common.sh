@@ -2,7 +2,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/
 write_title "Common Settings v1.0"
 
 #Dconf Settings
-write_heading "Dconf Settings"
+write_section "Dconf Settings"
 dconf write /org/cinnamon/desktop/notifications/display-notifications false
 dconf write /org/cinnamon/desktop/interface/clock-use-24h false
 dconf write /org/gnome/desktop/interface/clock-format "'12h'"
@@ -10,7 +10,7 @@ dconf write /com/linuxmint/updates/hide-systray true
 dconf write /org/x/apps/portal/color-scheme "'prefer-dark'"
 
 # Keyboard shortcuts
-write_heading "Keyboard Shortcuts"
+write_section "Keyboard Shortcuts"
 gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot-clip "['<Shift>Print', '<Shift><Super>s']"
 gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0', 'custom1', 'custom2', 'custom3', 'custom4']"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Switch to Scott'
@@ -30,7 +30,7 @@ gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/d
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom4/ binding "['<Primary><Alt><Shift>o']"
 
 # Desktop Extensions
-write_heading "Desktop Extensions"
+write_section "Desktop Extensions"
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/transparent-panels@germanfr.zip" > /tmp/tp.zip && unzip -o /tmp/tp.zip -d ~/.local/share/cinnamon/extensions > /dev/null; rm /tmp/tp.zip
 curl "https://cinnamon-spices.linuxmint.com/files/extensions/CinnamonBurnMyWindows@klangman.zip" > /tmp/bmw.zip && unzip -o /tmp/bmw.zip -d ~/.local/share/cinnamon/extensions > dev/null; rm /tmp/bmw.zip
 dconf write /org/cinnamon/enabled-extensions "['transparent-panels@germanfr', 'CinnamonBurnMyWindows@klangman']"
