@@ -1,4 +1,4 @@
-source < curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh
+curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh | source
 write_title "Common Settings v1.0"
 
 #Dconf Settings
