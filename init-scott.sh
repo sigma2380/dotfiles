@@ -22,7 +22,7 @@ write_section "Pin Apps"
 cp ~/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json ~/2.cinpanel.bk
 pin_app "thunderbird.desktop"
 pin_app "google-chrome.desktop"
-
+pin_app "code.desktop"
 
 # Extension Customizations
 write_section "Extension Customizations"
