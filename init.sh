@@ -1,4 +1,4 @@
-source <(curl -fsSL https://github.com/sigma2380/dotfiles/edit/master/functions.sh)
+source <(curl -fsSL https://raw.githubusercontent.com/sigma2380/dotfiles/master/functions.sh)
 write_title("Scott's Settings v1.5")
 tput setaf 2; echo "Scott's Settings v1.5"; tput sgr0
 sleep 1
