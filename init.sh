@@ -34,8 +34,8 @@ sudo mkdir /home/public
 sudo chmod 777 /home/public
 cd ~/.local/share/dotfiles
 cp *.jpg *.png *.sh *.json /home/public
-chmod 777 *.sh
 cd ~
+sudo chmod 777 ../public/*.sh
 
 # Add Chrome
 write_section "Add Chrome"
