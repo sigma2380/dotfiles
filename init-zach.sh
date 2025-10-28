@@ -9,7 +9,7 @@ write_heading "Wallpaper"
 gsettings set org.cinnamon.desktop.background picture-uri "file:///home/public/rockyshore-3.jpg"
 
 # Dconf Settings
-write_heading "Dconf settings"
+write_heading "Dconf Settings"
 dconf write /org/cinnamon/theme/name "'Mint-Y-Dark-Orange'"
 dconf write /org/cinnamon/desktop/interface/cursor-theme "'Bibata-Modern-Classic'"
 dconf write /org/cinnamon/desktop/interface/gtk-theme "'Mint-Y-Dark-Orange'"
@@ -30,6 +30,7 @@ fi
 write_heading "Extension Customizations"
 cp /home/public/bmw-zach.json ~/.config/cinnamon/spices/CinnamonBurnMyWindows\@klangman/CinnamonBurnMyWindows\@klangman.json
 cp /home/public/tp.json ~/.config/cinnamon/spices/transparent-panels\@germanfr/transparent-panels\@germanfr.json
+
 cinnamon --replace &
 sleep 2
 
