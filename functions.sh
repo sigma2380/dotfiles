@@ -25,7 +25,7 @@ function pin_app() {
     local file="$HOME/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"
 
     if ! grep -q "$shortcut" "$file"; then
-        sed -i "361 i\            \"$shortcut.desktop\"," "$file"
+        sed -i "361 i\            \"$shortcut\"," "$file"
         echo "$shortcut pinned."
     else
         echo "$shortcut already pinned."
